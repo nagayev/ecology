@@ -1,0 +1,24 @@
+#content{
+    margin: 0;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  font-family: 'Montserrat', sans-serif;
+}
+#div_earth{
+    display:flex;
+    margin: 0 auto;
+    border-radius: 50%;
+    align-items:center;
+    justify-content: center;
+}
+#img_earth0{
+    background: url(bg.png);
+    max-width: 90vw;
+}
+#img_earth1{
+    max-width: 90vw;
+    position:absolute; 
+    opacity:1.0;
+}

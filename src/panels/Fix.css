@@ -1,0 +1,19 @@
+#div_fix {
+    border-radius: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    background: linear-gradient(107.52deg,#6ed2d2 1.19%,#3ce699 98.21%);
+    color: #fff;
+    padding: 25px 0;
+}
+#header_fix {
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29px;
+}
+#content_fix {
+    margin: auto 10%;
+}

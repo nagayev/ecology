@@ -1,0 +1,19 @@
+{
+  "main.css": "/build/static/css/main.b4a092d2.chunk.css",
+  "main.js": "/build/static/js/main.64d91579.chunk.js",
+  "main.js.map": "/build/static/js/main.64d91579.chunk.js.map",
+  "runtime~main.js": "/build/static/js/runtime~main.b4d8ef2c.js",
+  "runtime~main.js.map": "/build/static/js/runtime~main.b4d8ef2c.js.map",
+  "static/css/2.8385d705.chunk.css": "/build/static/css/2.8385d705.chunk.css",
+  "static/js/2.410537d9.chunk.js": "/build/static/js/2.410537d9.chunk.js",
+  "static/js/2.410537d9.chunk.js.map": "/build/static/js/2.410537d9.chunk.js.map",
+  "index.html": "/build/index.html",
+  "precache-manifest.46e217efcca4ace8f8e0e2e777a31514.js": "/build/precache-manifest.46e217efcca4ace8f8e0e2e777a31514.js",
+  "service-worker.js": "/build/service-worker.js",
+  "static/css/2.8385d705.chunk.css.map": "/build/static/css/2.8385d705.chunk.css.map",
+  "static/css/main.b4a092d2.chunk.css.map": "/build/static/css/main.b4a092d2.chunk.css.map",
+  "static/media/Planet.css": "/build/static/media/bg.be0f6922.png",
+  "static/media/bgplastic.png": "/build/static/media/bgplastic.79c8bc3a.png",
+  "static/media/planet0.png": "/build/static/media/planet0.28ed19b3.png",
+  "static/media/planet1.png": "/build/static/media/planet1.06fa902f.png"
+}
