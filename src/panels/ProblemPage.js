@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Panel, /*PanelHeader, HeaderButton, platform, IOS */ } from '@vkontakte/vkui';
 import Arrow from './Arrow';
-import Slider from './Slider';
+import Slider from './Slider'
 import './ProblemPage.css';
 
 const ProblemPage = props => (

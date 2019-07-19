@@ -1,8 +1,9 @@
 from os import system
 def main():
-    message = input('Enter commit message: ')
+    system('npm run build')
     system('git add ./')
+    message = input('Enter commit message: ')
     system('git commit -m '+message)
-    system('npm run build && git push -u origin master')
+    system('git push -u origin master')
 if __name__ == "__main__":
     main()

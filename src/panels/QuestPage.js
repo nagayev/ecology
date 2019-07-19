@@ -4,8 +4,9 @@ import {Panel, /*PanelHeader, HeaderButton, platform, IOS */ } from '@vkontakte/
 import Arrow from './Arrow';
 import Facts from './Facts';
 import Fix from './Fix';
-//import Map from './Map';
-//import consts from '../constants';
+//import Map from './Map2';
+import { Map, Marker, MarkerLayout } from 'yandex-map-react';
+import './Map.css';
 import './QuestPage.css';
 import plastic from '../img/bgplastic.png';
 
@@ -19,7 +20,10 @@ const QuestPage = props => (
             <br />
             <Fix header="Как перерабатывать пластик? " 
             text="Чтобы переработать пластик нужноотнести его в один из специальных пунктов приема." />
-            {/*<Map center={[4,3]} />*/}
+            <br />
+            <Map id="map" onAPIAvailable={function () { console.log('Map api loaded'); }} center={props.center} zoom={props.zoom}>
+                <Marker lat={55.12} lon={45.00} />
+            </Map>
         </div>
     </Panel>
 );
