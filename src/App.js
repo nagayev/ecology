@@ -6,6 +6,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 import Home from './panels/Home';
 import Planet from './panels/Planet';
 import QuestPage from './panels/QuestPage';
+import ProblemPage from './panels/ProblemPage';
 
 class App extends React.Component {
 	constructor(props) {
@@ -41,6 +42,7 @@ class App extends React.Component {
 				<Home id="home" fetchedUser={this.state.fetchedUser} go={this.go} />
 				<Planet id="planet" go={this.go} />
 				<QuestPage id="quest" go={this.go} />
+				<ProblemPage id="problem" go={this.go} />
 			</View>
 		);
 	}
