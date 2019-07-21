@@ -25,6 +25,9 @@ class App extends React.Component {
 					console.log('Get info about user');
 					this.setState({ fetchedUser: e.detail.data });
 					break;
+				/*
+				case 'VKWebAppGeodataResult':
+					console.log(`Get user coords: ${e}`); */
 				default:
 					console.log(`[Debug] ${e.detail.type}`);
 			}

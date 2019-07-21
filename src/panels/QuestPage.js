@@ -4,20 +4,31 @@ import {Panel, /*PanelHeader, HeaderButton, platform, IOS */ } from '@vkontakte/
 import Arrow from './Arrow';
 import Facts from './Facts';
 import Fix from './Fix';
+import connect from '@vkontakte/vkui-connect';
 import { Map, Marker, MarkerLayout } from 'yandex-map-react';
 import './Map.css';
 import './QuestPage.css';
 import plastic from '../img/bgplastic.png';
 
+function getUserCoords(){
+    console.log('[DEBUG] Implement getUserCoords method ');
+    connect.subscribe(e=>{
+        if(e.detail.type==="VKWebAppGeodataResult"){
+            console.log(`Got user coords: ${e}`);
+        }
+    })
+    connect.send('VKWebAppGetGeodata',{});
 
+    var available = true;
+    var response = {lat:53.12,long:45.00};
+    return available?[53.12,45.00]:[response.lat,response.long];
+}
 const QuestPage = props =>{
     function callback(){
         var onFetched = data => {
-            //console.log(data);
-            //data {12344:{'lng':'55','lat':'123'}}
             var places = Object.values(data);
             for(let i=0;i<places.length;i++){
-                places[i].lon=parseFloat(places[i].lng); //{'lng':} //rename lng to lon
+                places[i].lon=parseFloat(places[i].lng);
                 places[i].lat=parseFloat(places[i].lat);
             }
             setMarkers(places);
@@ -39,7 +50,7 @@ const QuestPage = props =>{
                     <Fix header="Как перерабатывать пластик? " 
                     text="Чтобы переработать пластик нужноотнести его в один из специальных пунктов приема." />
                     <br />
-                    <Map id="map" onAPIAvailable={callback} center={[53.12,45.00]} zoom={13}>
+                    <Map id="map" onAPIAvailable={callback} center={getUserCoords()} zoom={13}>
                     {markers.map(marker => <Marker key={marker.id} lat={marker.lat} lon={marker.lon} />)}
                     </Map>
                 </div>
