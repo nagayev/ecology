@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Panel, /*PanelHeader, HeaderButton, platform, IOS */ } from '@vkontakte/vkui';
 import Arrow from './Arrow';
-import Slider from './Slider'
+import Slider from './Slider';
 import './ProblemPage.css';
 import getText from './getText';
 
@@ -23,7 +23,7 @@ const ProblemPage = props => {
         {getText(window.current)[1]}
         {/*Чтобы переработать батарейки нужно отправить их в один из специальных пунктов приема.*/}
         </p>
-        <button id="button_help">Помоги планете</button>
+        <button id="button_help" onClick={props.go} data-to="quest">Помоги планете</button>
     </Panel>
     )};
 ProblemPage.propTypes={

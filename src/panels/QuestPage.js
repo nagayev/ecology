@@ -22,12 +22,12 @@ const QuestPage = props =>{
             }
             setMarkers(places);
         };
-        var url = 'http://nagaevmt49.000webhostapp.com/recycle/server.php';
+        var url = 'https://nagaevmt49.000webhostapp.com/recycle/server.php';
         var opts = {method:'GET'}
         fetch(url,opts).then(data=>data.json()).then(data=>onFetched(data));
         }
         const [markers,setMarkers]=React.useState([]);
-        console.log(markers);
+        //console.log(markers);
         return (
             <Panel id={props.id}>
                 <Arrow go={props.go} />
