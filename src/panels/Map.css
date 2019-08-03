@@ -1,5 +1,6 @@
 #map{
-    /*background: grey; */
+    -ms-touch-action: auto !important;
+    touch-action: auto !important;
     margin-left:5%;
     margin-right:5%;
     width:80%;

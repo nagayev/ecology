@@ -11,7 +11,7 @@ const ProblemPage = props => {
     return ( 
     <Panel id={props.id}>
         <Arrow go={props.go} />
-        <Slider selected={0}/>
+        <Slider />
 
         <p id="header_problem">Проблема</p> <br />
         <p className="text">

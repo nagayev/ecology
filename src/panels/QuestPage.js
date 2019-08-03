@@ -1,17 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {Panel, /*PanelHeader, HeaderButton, platform, IOS */ } from '@vkontakte/vkui';
+import {Panel} from '@vkontakte/vkui';
 import Arrow from './Arrow';
 import Facts from './Facts';
 import Fix from './Fix';
 import connect from '@vkontakte/vkui-connect';
-import { Map, Marker, MarkerLayout } from 'yandex-map-react';
+import { Map, Marker, /*MarkerLayout */ } from 'yandex-map-react';
+import getFacts from './getFacts';
 import './Map.css';
 import './QuestPage.css';
 import plastic from '../img/bgplastic.png';
 
 function getUserCoords(){
-    console.log('[DEBUG] Implement getUserCoords method ');
+    //console.log('[DEBUG] Implement getUserCoords method ');
     var coords=[53.12,45.00];
     connect.subscribe(e=>{
         if(e.detail.type==="VKWebAppGeodataResult"){
@@ -19,7 +20,7 @@ function getUserCoords(){
             coords[0]=e.lat;
             coords[1]=e.long;
         }
-    })
+    });
     connect.send('VKWebAppGetGeodata',{});
 
     return coords;
@@ -38,18 +39,17 @@ const QuestPage = props =>{
         var opts = {method:'GET'}
         fetch(url,opts).then(data=>data.json()).then(data=>onFetched(data));
         }
-        const [markers,setMarkers]=React.useState([]);
-        //console.log(markers);
+        const [markers,setMarkers]=useState([]);
         return (
             <Panel id={props.id}>
                 <Arrow go={props.go} />
                 <div id="content">
                     <img id="img" src={plastic} alt="Failed to load background"></img>
-                    <p id="header_main">Чем вреден пластик?</p>
-                    <Facts />
+                    <p id="header_main">{getFacts(props.type).header}</p>
+                    <Facts type={props.type} />
                     <br />
                     <Fix header="Как перерабатывать пластик? " 
-                    text="Чтобы переработать пластик нужноотнести его в один из специальных пунктов приема." />
+                    text="Чтобы переработать пластик нужно отнести его в один из специальных пунктов приема." />
                     <br />
                     <Map id="map" onAPIAvailable={callback} center={getUserCoords()} zoom={13}>
                     {markers.map(marker => <Marker key={marker.id} lat={marker.lat} lon={marker.lon} />)}
@@ -58,9 +58,11 @@ const QuestPage = props =>{
             </Panel>
         );
 }
+
 QuestPage.propTypes={
-    //type: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
-	go: PropTypes.func.isRequired,
+    go: PropTypes.func.isRequired,
+    type: PropTypes.string.isRequired //soil, atmos or water
 };
-export default QuestPage
+
+export default QuestPage;

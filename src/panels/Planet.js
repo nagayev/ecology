@@ -6,7 +6,7 @@ import TaskHeader from './TaskHeader';
 import Task from './Task';
 import planet0 from '../img/planet0.png';
 import planet1 from '../img/planet1.png';
-import consts from '../constants';
+//import consts from '../constants';
 import './Planet.css';
 
 const Planet = props => (
@@ -18,9 +18,9 @@ const Planet = props => (
             <img src={planet1} id="img_earth1" alt="Failed to load planet 1"/>
         </div>
         <TaskHeader text="Ваши задания" />
-        <Task go={props.go} type={consts.PACKET_TYPE} count="2" />
-        <Task go={props.go} type={consts.LAMP_TYPE} count="1" />
-        <Task go={props.go} type={consts.PACKET_TYPE} count="5" />
+        <Task go={props.go} type="plastic" count="2" />
+        <Task go={props.go} type="lamps" count="1" />
+        <Task go={props.go} type="plastic" count="5" />
         </div>
 		
     </Panel>

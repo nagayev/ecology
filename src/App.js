@@ -41,7 +41,7 @@ class App extends React.Component {
 			<View activePanel={this.state.activePanel}>
 				<Home id="home" fetchedUser={this.state.fetchedUser} go={this.go} />
 				<Planet id="planet" go={this.go} />
-				<QuestPage id="quest" go={this.go} />
+				<QuestPage id="quest" go={this.go} type="plastic" />
 				<ProblemPage id="problem" go={this.go} />
 			</View>
 		);

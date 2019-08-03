@@ -10,6 +10,7 @@ const Task = props => (
     <span className="bold">0/{props.count}</span>
     </button> //this should be button
 );
+
 Task.propTypes = {
     go: PropTypes.func.isRequired,
     type: PropTypes.string.isRequired,

@@ -30,7 +30,7 @@ const Slider = props =>{
     const [selected,setValue] = useState(0);
 
     return (
-        <AwesomeSlider organicArrows={false} selected={selected} onTransitionStart={callback}>
+        <AwesomeSlider selected={selected} onTransitionStart={callback}>
             <div data-src={soil}><p className="header_main">Почва</p></div>
             <div data-src={water}><p className="header_main">Вода</p></div>
             <div data-src={atmos}><p className="header_main">Атмосфера</p></div> 

@@ -1,9 +1,18 @@
 const consts = {};
-consts.PACKET_TYPE = "packet";
-consts.LAMP_TYPE = "lamp";
+consts.PLASTIC = "plastic";
+consts.LAMPS = "lamps";
+consts.BATTERY="battery";
+
 consts.getTask=(type,count)=>{
-    if(type===consts.PACKET_TYPE) return `Утилизировать ${count} пластиковых пакета `;
-    else if(type===consts.LAMP_TYPE) return `Отправить на переработку ${count} лампочку `;
-    return 'Произошел троллинг'; //haahh
+    switch(type){
+        case consts.PLASTIC:
+            return `Утилизировать ${count} пластиковых пакета `;
+        case consts.LAMPS:
+            return `Отправить на переработку ${count} лампочку `;
+        case consts.BATTERY:
+            return `ОО Батарейка)` //FIXME:
+        default:
+            return 'Произошел троллинг'; //haahh
+    }
 };
 export default consts;
