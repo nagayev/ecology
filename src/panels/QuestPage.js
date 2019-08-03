@@ -12,16 +12,17 @@ import plastic from '../img/bgplastic.png';
 
 function getUserCoords(){
     console.log('[DEBUG] Implement getUserCoords method ');
+    var coords=[53.12,45.00];
     connect.subscribe(e=>{
         if(e.detail.type==="VKWebAppGeodataResult"){
-            console.log(`Got user coords: ${e}`);
+            console.log(`Got user coords: ${Object.keys(e)}`);
+            coords[0]=e.lat;
+            coords[1]=e.long;
         }
     })
     connect.send('VKWebAppGetGeodata',{});
 
-    var available = true;
-    var response = {lat:53.12,long:45.00};
-    return available?[53.12,45.00]:[response.lat,response.long];
+    return coords;
 }
 const QuestPage = props =>{
     function callback(){

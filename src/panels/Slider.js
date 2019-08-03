@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import AwesomeSlider from 'react-awesome-slider';
 import getText from './getText';
-import 'react-awesome-slider/dist/styles.css'
+import 'react-awesome-slider/dist/styles.css';
+//import PropTypes from 'prop-types';
 import './Slider.css';
 import soil from '../img/bgsoil.png';
 import water from '../img/bgwater.jpg';
@@ -16,24 +17,25 @@ function updateDom(){
 function changeCurrent(cur){
     window.current=cur;
 }
-class Slider extends React.Component{
-    render(){
-        return (
-            <AwesomeSlider organicArrows={false}>
-                <div data-src={soil}><p className="header_main">Почва</p></div>
-                <div data-src={water}><p className="header_main">Вода</p></div>
-                <div data-src={atmos}><p className="header_main">Атмосфера</p></div> 
-            </AwesomeSlider>
-        );
+const Slider = props =>{
+    var callback=(event)=>{
+        //анимация началась. Значит, изменился selected (номер слайда)
+        //задача в том, чтобы получить selected
+        //console.log(event);
+        var array = ['soil','water','atmos'];
+        setValue(event.nextIndex);
+        changeCurrent(array[event.nextIndex]);
+        updateDom();
     }
-    componentDidMount(){
-        var buttons = document.querySelectorAll('.aws-sld__bullets button');
-        var arr = ['soil','water','atmos'];
-        for(let i=0;i<buttons.length;i++) buttons[i].addEventListener('click',()=>{
-            changeCurrent(arr[i]);
-            updateDom();
-        });
-        //buttons
-    } 
+    const [selected,setValue] = useState(0);
+
+    return (
+        <AwesomeSlider organicArrows={false} selected={selected} onTransitionStart={callback}>
+            <div data-src={soil}><p className="header_main">Почва</p></div>
+            <div data-src={water}><p className="header_main">Вода</p></div>
+            <div data-src={atmos}><p className="header_main">Атмосфера</p></div> 
+        </AwesomeSlider>
+    );
 }
+
 export default Slider;
