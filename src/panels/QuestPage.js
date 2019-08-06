@@ -4,6 +4,7 @@ import {Panel} from '@vkontakte/vkui';
 import Arrow from './Arrow';
 import Facts from './Facts';
 import Fix from './Fix';
+import ThingBlock from './ThingBlock';
 import connect from '@vkontakte/vkui-connect';
 import { Map, Marker, /*MarkerLayout */ } from 'yandex-map-react';
 import getFacts from './getFacts';
@@ -51,6 +52,7 @@ const QuestPage = props =>{
                     <Fix header="Как перерабатывать пластик? " 
                     text="Чтобы переработать пластик нужно отнести его в один из специальных пунктов приема." />
                     <br />
+                    <ThingBlock type="battery" number={2} />
                     <Map id="map" onAPIAvailable={callback} center={getUserCoords()} zoom={13}>
                     {markers.map(marker => <Marker key={marker.id} lat={marker.lat} lon={marker.lon} />)}
                     </Map>
