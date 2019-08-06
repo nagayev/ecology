@@ -2,8 +2,6 @@ import React from 'react';
 import connect from '@vkontakte/vkui-connect';
 import { View } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
-
-import Home from './panels/Home';
 import Planet from './panels/Planet';
 import QuestPage from './panels/QuestPage';
 import ProblemPage from './panels/ProblemPage';
@@ -39,8 +37,9 @@ class App extends React.Component {
 	render() {
 		return (
 			<View activePanel={this.state.activePanel}>
-				<Home id="home" fetchedUser={this.state.fetchedUser} go={this.go} />
-				<Planet id="planet" go={this.go} />
+				{//<Home id="home" fetchedUser={this.state.fetchedUser} go={this.go} />
+				}
+				<Planet id="home" go={this.go} />
 				<QuestPage id="quest" go={this.go} type="plastic" />
 				<ProblemPage id="problem" go={this.go} />
 			</View>
