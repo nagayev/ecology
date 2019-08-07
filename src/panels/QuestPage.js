@@ -5,7 +5,7 @@ import Arrow from './Arrow';
 import Facts from './Facts';
 import Fix from './Fix';
 import ThingBlock from './ThingBlock';
-import connect from '@vkontakte/vkui-connect';
+import connect from 'vkui-connect-promise';
 import { Map, Marker, /*MarkerLayout */ } from 'yandex-map-react';
 import getFacts from './getFacts';
 import './Map.css';
@@ -15,18 +15,22 @@ import plastic from '../img/bgplastic.png';
 function getUserCoords(){
     //console.log('[DEBUG] Implement getUserCoords method ');
     var coords=[53.12,45.00];
-    connect.subscribe(e=>{
-        if(e.detail.type==="VKWebAppGeodataResult"){
-            console.log(`Got user coords: ${Object.keys(e)}`);
-            coords[0]=e.lat;
-            coords[1]=e.long;
+    function callback(data){
+        if(data.detail.type==="VKWebAppGeodataResult"){
+            console.log(`Got user coords: ${Object.keys(data)}`);
+            coords[0]=data.lat;
+            coords[1]=data.long;
         }
-    });
-    connect.send('VKWebAppGetGeodata',{});
-
+    }
+    connect.send('VKWebAppGetGeodata',{}).then(data=>callback(data)).catch(()=>console.error('connect error'));
     return coords;
 }
 const QuestPage = props =>{
+    const postText =  "Я уже попробовала новое экологическое приложение recycle.\nПодключайся: https://vk.com/recycle_e";
+    function share(){
+        connect.send("VKWebAppCallAPIMethod",{method:"wall.post",request_id:"magicString",
+    params:{message:postText}}).then().catch(err=>alert('Произошла ошибка в публикации поста'));
+    }
     function callback(){
         var onFetched = data => {
             var places = Object.values(data);
@@ -45,8 +49,11 @@ const QuestPage = props =>{
             <Panel id={props.id}>
                 <Arrow go={props.go} />
                 <div id="content">
-                    <img id="img" src={plastic} alt="Failed to load background"></img>
-                    <p id="header_main">{getFacts(props.type).header}</p>
+                    <div>
+                        <img id="img" src={plastic} alt="Failed to load background"></img>
+                        <p id="header_main">{getFacts(props.type).header}</p>
+                        <div id="share" onClick={share} /*style={{transform: 'matrix(-1, 0, 0, 1, 0, 0)'}} */>поделиться</div>
+                    </div>
                     <Facts type={props.type} />
                     <br />
                     <Fix header="Как перерабатывать пластик? " 

@@ -28,7 +28,6 @@ const Slider = props =>{
         updateDom();
     }
     const [selected,setValue] = useState(0);
-
     return (
         <AwesomeSlider selected={selected} onTransitionStart={callback}>
             <div data-src={soil}><p className="header_main">Почва</p></div>

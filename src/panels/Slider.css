@@ -8,3 +8,9 @@
     color: red;
     margin: auto 0;
 }
+/*FIXME: HACK!!! */
+.aws-sld{
+    /*--organic-arrow-color: red; */
+    --control-bullet-color:linear-gradient(107.52deg, #6DD2D1 1.19%, #3DE69A 98.21%);;
+    --control-bullet-active-color:linear-gradient(107.52deg, #6DD2D1 1.19%, #3DE69A 98.21%);
+}

@@ -15,19 +15,17 @@
     "cross-env": "^5.2.0",
     "gh-pages": "^2.0.1",
     "react-hot-loader": "^4.7.1",
-    "react-scripts": "^2.1.5"
+    "react-scripts": "^2.1.8"
   },
   "dependencies": {
-    "2gis-maps": "^3.5.8",
-    "@vkontakte/icons": "^1.5.0",
     "@vkontakte/vkui": "^2.23.0",
-    "@vkontakte/vkui-connect": "^1.1.3",
     "babel-eslint": "^9.0.0",
     "core-js": "^2.6.5",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
     "react-awesome-slider": "^1.0.1",
     "react-dom": "^16.8.3",
+    "vkui-connect-promise": "^0.1.16",
     "yandex-map-react": "^1.1.1"
   },
   "browserslist": [
