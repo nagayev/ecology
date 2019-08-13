@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "24a673280ad3f60ec36f",
+    "revision": "6ee4e25e147ad6d971c0",
     "url": "./static/css/main.3c3dc795.chunk.css"
   },
   {
-    "revision": "24a673280ad3f60ec36f",
-    "url": "./static/js/main.0127d056.chunk.js"
+    "revision": "6ee4e25e147ad6d971c0",
+    "url": "./static/js/main.712619be.chunk.js"
   },
   {
     "revision": "8c97409f0ee389fe75da",
     "url": "./static/js/runtime~main.d653cc00.js"
   },
   {
-    "revision": "4c897baab992bbc511e5",
+    "revision": "98ccbb04052a29532ce3",
     "url": "./static/css/2.d0324a97.chunk.css"
   },
   {
-    "revision": "4c897baab992bbc511e5",
-    "url": "./static/js/2.0b7b32be.chunk.js"
+    "revision": "98ccbb04052a29532ce3",
+    "url": "./static/js/2.9d7987b0.chunk.js"
   },
   {
     "revision": "28ed19b35c083e2ab86f2508d6b28ae3",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "./static/media/bgatmos.e107b5e4.png"
   },
   {
-    "revision": "5c9eb7b96eac5df249c8fd06deb4a602",
+    "revision": "b6a85c41f1970a09f151af8f76eaa23a",
     "url": "./index.html"
   }
 ];

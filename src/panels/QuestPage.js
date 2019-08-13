@@ -8,22 +8,11 @@ import ThingBlock from './ThingBlock';
 import connect from 'vkui-connect-promise';
 import { Map, Marker, /*MarkerLayout */ } from 'yandex-map-react';
 import getFacts from './getFacts';
-import storage from './storage';
+import storage from './storage.ts';
 import './Map.css';
 import './QuestPage.css';
 import plastic from '../img/bgplastic.png';
 
-/*
-function getNumber(){
-    const number = localStorage.getItem('batteryNumber');
-    if(!number){
-        //first run, batteryNumber is null
-        localStorage.setItem('batteryNumber',2); //for future usage
-        return 2;
-    }
-    return +number;
-}
-*/
 function handleError(err){
     console.error(err);
     debugger;
@@ -32,7 +21,7 @@ function getUserCoords(){
     var coords=[53.12,45.00];
 
     function callback(data){
-        console.log(`getuserCoords callback: ${data}`);
+        console.log(`getuserCoords callback: ${Object.keys(data)}`);
         if(data.detail.type==="VKWebAppGeodataResult"){
             console.log(`Got user coords: ${Object.keys(data)}`);
             coords[0]=data.lat;
@@ -49,11 +38,13 @@ function getUserCoords(){
 const QuestPage = props =>{
     const postText =  "Новое экологическое приложение recycle супер!\nПодключайся и ты: https://vk.com/recycle_e";
     function share(){
-        var opts = {
-            method:"wall.post",request_id:"magicString",
-            params:{message:postText,v:"5.101"}
-        };
         console.log('Share was called!');
+        connect.send("VKWebAppGetAuthToken", {"app_id": 7030798, "scope": "wall"})
+        .then(data=>{localStorage.token=data.access_token}).catch(err=>handleError(err));
+        var opts = {
+            method:"wall.post",request_id:"magicString123",
+            params:{message:postText,v:"5.101",access_token:localStorage.getItem('token')}
+        };
         connect.send("VKWebAppCallAPIMethod",opts).then(data=>console.log('Successful wall.post!')).catch(err=>handleError(err));
     }
     function callback(){
@@ -67,7 +58,7 @@ const QuestPage = props =>{
             setMarkers(places);
         };
         var url = 'https://nagaevmt49.000webhostapp.com/recycle/server.php';
-        var opts = {method:'GET'}
+        var opts = {method:'GET'};
         fetch(url,opts).then(data=>data.json()).then(data=>onFetched(data)).catch(err=>handleError(err));
         }
         const [markers,setMarkers]=useState([]);

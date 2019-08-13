@@ -26,6 +26,7 @@
     "react": "^16.8.3",
     "react-awesome-slider": "^1.0.1",
     "react-dom": "^16.8.3",
+    "typescript": "^3.5.3",
     "vkui-connect-promise": "^0.1.16",
     "yandex-map-react": "^1.1.1"
   },
