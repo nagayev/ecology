@@ -5,6 +5,19 @@ import Planet from './panels/Planet';
 import QuestPage from './panels/QuestPage';
 import ProblemPage from './panels/ProblemPage'
 
+/*
+const App = props => {
+	const handler=(e)=>go(e.currentTarget.dataset.to);
+	const [activePanel,go]=useState('home')
+	return (
+		<View activePanel={activePanel}>
+			<Planet id="home" go={go} />
+			<QuestPage id="quest" go={go} type="plastic" />
+			<ProblemPage id="problem" go={go} />
+		</View>
+	);
+};
+*/ 
 class App extends React.Component {
 	constructor(props) {
 		super(props);

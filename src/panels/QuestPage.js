@@ -28,8 +28,9 @@ function getUserCoords(){
 const QuestPage = props =>{
     const postText =  "Я уже попробовала новое экологическое приложение recycle.\nПодключайся: https://vk.com/recycle_e";
     function share(){
+        console.log('share was called!');
         connect.send("VKWebAppCallAPIMethod",{method:"wall.post",request_id:"magicString",
-    params:{message:postText}}).then().catch(err=>alert('Произошла ошибка в публикации поста'));
+    params:{message:postText}}).then(data=>console.log('Successful wall.post!')).catch(err=>alert('Произошла ошибка в публикации поста'));
     }
     function callback(){
         var onFetched = data => {

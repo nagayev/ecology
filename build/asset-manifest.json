@@ -1,0 +1,22 @@
+{
+  "main.css": "./static/css/main.87237d31.chunk.css",
+  "main.js": "./static/js/main.d7513954.chunk.js",
+  "main.js.map": "./static/js/main.d7513954.chunk.js.map",
+  "runtime~main.js": "./static/js/runtime~main.d653cc00.js",
+  "runtime~main.js.map": "./static/js/runtime~main.d653cc00.js.map",
+  "static/css/2.d0324a97.chunk.css": "./static/css/2.d0324a97.chunk.css",
+  "static/js/2.54312378.chunk.js": "./static/js/2.54312378.chunk.js",
+  "static/js/2.54312378.chunk.js.map": "./static/js/2.54312378.chunk.js.map",
+  "index.html": "./index.html",
+  "precache-manifest.dae40971b83261c31b26576149ed425a.js": "./precache-manifest.dae40971b83261c31b26576149ed425a.js",
+  "service-worker.js": "./service-worker.js",
+  "static/css/2.d0324a97.chunk.css.map": "./static/css/2.d0324a97.chunk.css.map",
+  "static/css/main.87237d31.chunk.css.map": "./static/css/main.87237d31.chunk.css.map",
+  "static/media/Planet.css": "./static/media/bg.be0f6922.png",
+  "static/media/bgatmos.png": "./static/media/bgatmos.e107b5e4.png",
+  "static/media/bgplastic.png": "./static/media/bgplastic.79c8bc3a.png",
+  "static/media/bgsoil.png": "./static/media/bgsoil.b5761aba.png",
+  "static/media/bgwater.jpg": "./static/media/bgwater.1621ca70.jpg",
+  "static/media/planet0.png": "./static/media/planet0.28ed19b3.png",
+  "static/media/planet1.png": "./static/media/planet1.06fa902f.png"
+}
