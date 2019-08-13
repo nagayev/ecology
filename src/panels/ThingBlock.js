@@ -24,6 +24,7 @@ class ThingBlock extends React.Component{
         };
         var addThing = () => {
             this.setState({number:this.state.number+1});
+            localStorage.setItem('batteryNumber',+localStorage.getItem('batteryNumber')+1);
             this.forceUpdate();
         }
         const thingArray = new Array(this.state.number).fill(<img style={thingStyle} src={battery} alt="" />);

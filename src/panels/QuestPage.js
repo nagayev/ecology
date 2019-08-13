@@ -12,6 +12,19 @@ import './Map.css';
 import './QuestPage.css';
 import plastic from '../img/bgplastic.png';
 
+function getNumber(){
+    const number = localStorage.getItem('batteryNumber');
+    if(!number){
+        //first run, batteryNumber is null
+        localStorage.setItem('batteryNumber',2); //for future usage
+        return 2;
+    }
+    return +number;
+}
+function handleError(err){
+    console.error(err);
+    debugger;
+}
 function getUserCoords(){
     //console.log('[DEBUG] Implement getUserCoords method ');
     var coords=[53.12,45.00];
@@ -22,15 +35,18 @@ function getUserCoords(){
             coords[1]=data.long;
         }
     }
-    connect.send('VKWebAppGetGeodata',{}).then(data=>callback(data)).catch(()=>console.error('connect error'));
+    connect.send('VKWebAppGetGeodata',{}).then(data=>callback(data)).catch((err)=>handleError(err));
     return coords;
 }
 const QuestPage = props =>{
-    const postText =  "Я уже попробовала новое экологическое приложение recycle.\nПодключайся: https://vk.com/recycle_e";
+    const postText =  "Новое экологическое приложение recycle супер!\nПодключайся и ты: https://vk.com/recycle_e";
     function share(){
+        var opts = {
+            method:"wall.post",request_id:"magicString",
+            params:{message:postText}
+        };
         console.log('share was called!');
-        connect.send("VKWebAppCallAPIMethod",{method:"wall.post",request_id:"magicString",
-    params:{message:postText}}).then(data=>console.log('Successful wall.post!')).catch(err=>alert('Произошла ошибка в публикации поста'));
+        connect.send("VKWebAppCallAPIMethod",opts).then(data=>console.log('Successful wall.post!')).catch(err=>handleError(err));
     }
     function callback(){
         var onFetched = data => {
@@ -43,7 +59,7 @@ const QuestPage = props =>{
         };
         var url = 'https://nagaevmt49.000webhostapp.com/recycle/server.php';
         var opts = {method:'GET'}
-        fetch(url,opts).then(data=>data.json()).then(data=>onFetched(data));
+        fetch(url,opts).then(data=>data.json()).then(data=>onFetched(data)).catch(err=>handleError(err));
         }
         const [markers,setMarkers]=useState([]);
         return (
@@ -60,7 +76,7 @@ const QuestPage = props =>{
                     <Fix header="Как перерабатывать пластик? " 
                     text="Чтобы переработать пластик нужно отнести его в один из специальных пунктов приема." />
                     <br />
-                    <ThingBlock type="battery" number={2} />
+                    <ThingBlock type="battery" number={getNumber()} />
                     <Map id="map" onAPIAvailable={callback} center={getUserCoords()} zoom={13}>
                     {markers.map(marker => <Marker key={marker.id} lat={marker.lat} lon={marker.lon} />)}
                     </Map>
